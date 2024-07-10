@@ -1,0 +1,21 @@
+footer {
+  position: relative;
+}
+
+footer::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  border-top: 4px solid var(--primary-color);
+  box-shadow: 0 5px 29px 0px var(--category-color);
+}
+
+footer .container {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,13 +1,62 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --body-color: #000000;
+  --white: #FFFFFF;
+  --primary-color: #2271D1;
+  --category-color: #6BD1FF;
+  --font-color: #F5F5F5;
+  --dark-gray: #262626;
+  --light-grey: #A5A5A5;
+  --danger: #E53935;
 }
 
-h1 {
-  color: lightskyblue;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  color: var(--font-color);
+}
+
+body {
+  background-color: var(--body-color);
+}
+
+main {
+  min-height: calc(100vh - 170px);
+}
+
+a {
+  text-decoration: none;
+  z-index: 1;
+}
+
+.container {
+  padding: 30px 20px;
+}
+
+.logo {
+  height: 40px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #000000 inset;
+    -webkit-text-fill-color: var(--font-color);
+}
+
+
+@media screen and (min-width: 576px) {
+  main {
+    min-height: calc(100vh - 225px);
+  }
+}
+
+
+@media screen and (min-width: 1025px) {
+  .container {
+    max-width: 1350px;
+    margin: 0 auto;
+  }
 }

@@ -1,8 +1,15 @@
+import { Footer } from "./components/layout/footer/Footer"
+import { Header } from "./components/layout/header/Header"
+import { Home } from "./pages/home/Home"
 
 const App = () => {
 
   return (
-    <h1>AluraFlix</h1>
+    <>
+      <Header/>
+      <Home/>
+      <Footer/>
+    </>
   )
 }
 
