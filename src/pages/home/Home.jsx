@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import { Category } from "../../components/category/Category"
 import './home.css'
 import backgroundImg from "../../assets/images/banner-background-img.png";
 import bannerImage from "../../assets/images/banner-image.png"
+import { CategoryContext } from "../../context/CategoryContext";
 
 export const Home = () => {
-  const counter = [1,2,3]
+  const { categories } = useContext(CategoryContext);
 
   return (
     <main>
@@ -20,7 +22,7 @@ export const Home = () => {
         </div>
       </div>
     </section>
-    {counter.map((c, index) => <Category key={index}/>)}
+    {categories.map(category => <Category key={category.id} {...category}/>)}
   </main> 
   )
 }

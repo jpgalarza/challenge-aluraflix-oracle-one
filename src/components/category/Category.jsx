@@ -1,15 +1,17 @@
+import { useContext } from 'react'
 import './category.css'
 import { Card } from '../card/Card'
+import { VideoContext } from '../../context/VideoContext'
 
-export const Category = () => {
-  const counter = [1,2,3]
+export const Category = ({ id, name, color }) => {
+  const { videos } = useContext(VideoContext);
   
   return (
     <section className="category">
       <div className="container">
-        <h2 className="category-title">FRONT END</h2>
+        <h2 className="category-title" style={{backgroundColor: color}}>{name}</h2>
         <div className="card-scroll">
-          {counter.map((c, index) => <Card key={index}/>)}
+          {videos.filter(video => video.category === id).map(video => <Card key={video.id} {...video}/>)}
         </div>
       </div>
     </section>
