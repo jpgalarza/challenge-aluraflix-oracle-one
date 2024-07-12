@@ -1,5 +1,5 @@
 .card {
-  border: 5px solid var(--category-color);
+  border: 5px solid;
   border-radius: 15px;
   min-width: 100%;
   scroll-snap-align: center;
@@ -35,7 +35,7 @@
 .card-footer {
   height: 52px;
   display: flex;
-  border-top: 5px solid #6BD1FF;
+  border-top: 5px solid;
 }
 
 .card-footer>button {

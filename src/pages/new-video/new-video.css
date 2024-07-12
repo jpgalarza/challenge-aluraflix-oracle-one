@@ -1,0 +1,27 @@
+.form-title {
+  font-size: 40px;
+  height: 91px;
+  line-height: 91px;
+  font-weight: 900;
+  text-align: center;
+  border: solid var(--dark-gray);
+  border-width: 3px 0 3px 0;
+}
+
+.form-description {
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+@media screen and (min-width: 1025px) {
+  .form-title {
+    font-size: 60px;
+  }
+
+  .form-description {
+    font-size: 20px;
+  }
+}

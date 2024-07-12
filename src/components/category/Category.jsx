@@ -11,7 +11,9 @@ export const Category = ({ id, name, color }) => {
       <div className="container">
         <h2 className="category-title" style={{backgroundColor: color}}>{name}</h2>
         <div className="card-scroll">
-          {videos.filter(video => video.category === id).map(video => <Card key={video.id} {...video}/>)}
+          {videos.filter(video => video.category === id)
+            .map(video => <Card key={video.id} {...video} categoryColor={color}/>)
+          }
         </div>
       </div>
     </section>

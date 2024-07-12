@@ -1,27 +1,14 @@
 import { useContext } from "react";
 import { Category } from "../../components/category/Category"
-import './home.css'
-import backgroundImg from "../../assets/images/banner-background-img.png";
-import bannerImage from "../../assets/images/banner-image.png"
 import { CategoryContext } from "../../context/CategoryContext";
+import { Banner } from "../../components/banner/Banner";
 
 export const Home = () => {
   const { categories } = useContext(CategoryContext);
 
   return (
     <main>
-    <section className="banner" style={{backgroundImage: `url(${backgroundImg})`}}>
-      <div className="container banner-container">
-        <div className="info-banner">
-          <h1 className="banner-title">Front End</h1>
-          <h3 className="banner-subtitle">Challenge React</h3>
-          <p className="banner-description">Este challenge es una forma de aprendizaje. Es un mecanismo donde podrás comprometerte en la resolución de un problema para poder aplicar todos los conocimientos adquiridos en la formación React.</p>
-        </div>
-        <div className="banner-img-container">
-          <img src={bannerImage} alt=""/>
-        </div>
-      </div>
-    </section>
+    <Banner/>
     {categories.map(category => <Category key={category.id} {...category}/>)}
   </main> 
   )

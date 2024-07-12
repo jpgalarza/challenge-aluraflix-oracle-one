@@ -5,7 +5,6 @@
 @media screen and (min-width: 576px) {  
   .banner {
     display: block;
-    /* background-image: url("../../assets/images/banner-background-img.png"); */
     background-size: cover;
     background-position: center;
   }
