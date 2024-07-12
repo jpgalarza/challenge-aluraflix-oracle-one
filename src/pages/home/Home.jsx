@@ -8,9 +8,9 @@ export const Home = () => {
 
   return (
     <main>
-    <Banner/>
-    {categories.map(category => <Category key={category.id} {...category}/>)}
-  </main> 
+      <Banner/>
+      {categories.map(category => <Category key={category.id} {...category}/>)}
+    </main> 
   )
 }
 

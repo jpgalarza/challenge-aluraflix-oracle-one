@@ -1,0 +1,19 @@
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found>section {
+  text-align: center;
+  line-height: 100px;
+}
+
+.not-found h1 {
+  font-size: 45px;
+}
+
+.not-found i {
+  font-size: 100px;
+  color: var(--danger);
+}
