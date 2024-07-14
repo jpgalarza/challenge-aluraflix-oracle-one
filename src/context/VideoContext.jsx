@@ -10,10 +10,16 @@ const VideoContextProvider = ({ children }) => {
     setVideos([... videos, { id: crypto.randomUUID(), ...data}])
   };
 
+  const deleteVideo = (id) => {
+    setVideos(videos.filter(video => video.id !== id));
+  };
+  
+
   return (
     <VideoContext.Provider value={{
       videos,
-      createVideo
+      createVideo,
+      deleteVideo
     }}
     >
       {children}

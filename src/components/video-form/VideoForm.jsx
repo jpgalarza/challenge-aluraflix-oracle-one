@@ -77,7 +77,7 @@ export const VideoForm = () => {
 
       setTimeout(() => {
         navigate("/");
-      }, 1600);
+      }, 1500);
     }
   };
 
