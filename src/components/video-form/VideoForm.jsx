@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./video-form.css";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 import { Input } from "../input/Input";
 import { SelectCategory } from "../select-category/SelectCategory";
 import { Textarea } from "../textarea/Textarea";
 import { Button } from "../button/Button";
 import { errorTypes, messages } from "../../js/customErrors";
 import { validations } from "../../helpers/validations";
+import { VideoContext } from "../../context/VideoContext";
 
 export const VideoForm = () => {
   const [videoData, setVideoData] = useState({
@@ -22,6 +25,8 @@ export const VideoForm = () => {
     video: '',
     description: ''
   });
+  const { createVideo } = useContext(VideoContext);
+  const navigate = useNavigate();
   
 
   const handleInputChange = (name, value) => {
@@ -56,8 +61,25 @@ export const VideoForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit');
-  }
+    const missingData = Object.values(videoData).includes('');
+    const isError = Object.values(errors).some(error => error !== '');
+
+    if(!missingData && !isError) {
+      createVideo(videoData);
+
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Video creado exitosamente!!",
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1600);
+    }
+  };
 
   return (
     <form className="form-video" onSubmit={handleSubmit}>
