@@ -35,7 +35,6 @@ export const VideoForm = () => {
     setErrors({ ...errors, [name]: ''});
 
     if(!validity.valid && !validity.customError) {
-      console.log(validity);
       errorTypes.forEach((error) => {
         if (validity[error]) {
           setErrors({ ...errors, [name]: messages[name][error] });
@@ -54,8 +53,14 @@ export const VideoForm = () => {
     }
   };
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('submit');
+  }
+
   return (
-    <form className="form-video">
+    <form className="form-video" onSubmit={handleSubmit}>
       <h2 className="form-subtitle">Crear Tarjeta</h2>
       <Input
         type="text"
@@ -106,7 +111,7 @@ export const VideoForm = () => {
         error={errors.description}
       />
       <div className="form-button-container">
-        <Button type="submit" text="GUARDAR" />
+        <Button type="submit" text="GUARDAR" errors={errors} data={videoData}/>
         <Button type="reset" text="LIMPIAR" />
       </div>
     </form>

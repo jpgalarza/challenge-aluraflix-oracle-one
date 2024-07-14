@@ -12,8 +12,9 @@ export const SelectCategory = ({ name, label, defaultText, value, handleInputCha
         id={name} 
         value={value}
         className={`form-input ${(error !== '') && 'input-error'}`} 
-        onChange={ e => handleInputChange(e.target.name, e.target.value) }
+        onChange={e => handleInputChange(e.target.name, e.target.value) }
         onBlur={e => validate(e.target)}
+        onInvalid={e => { e.preventDefault(); validate(e.target) }}
         required
       >
         <option value="" hidden >{defaultText}</option>

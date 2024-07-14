@@ -33,7 +33,7 @@ const titleValidation = (target) => {
 const categoryValidation = (target) => {
   const value = target.value.trim();
 
-  if(!data.categories.some(category => category.id === value)) {
+  if(value === '' || !data.categories.some(category => category.id === value)) {
     target.setCustomValidity('error');
   }
 }
@@ -52,7 +52,7 @@ const urlValidation = (target) => {
 const descriptionValidation = (target) => {
   const value = target.value.trim();
 
-  if (value === '' || value.length < 10 || value.length > 300) {
+  if (value.length < 10 || value.length > 300) {
     target.setCustomValidity('error');
   }
 };
