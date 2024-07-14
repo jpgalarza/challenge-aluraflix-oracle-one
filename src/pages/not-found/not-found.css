@@ -1,19 +1,17 @@
 .not-found {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-}
+  padding-top: 70px !important;
+  gap: 40px;
+} 
 
-.not-found>section {
-  text-align: center;
-  line-height: 100px;
-}
-
-.not-found h1 {
+.not-found>h1 {
   font-size: 45px;
+  text-align: center;
 }
 
-.not-found i {
+.not-found>i {
   font-size: 100px;
   color: var(--danger);
 }
