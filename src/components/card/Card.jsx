@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import './card.css'
 import { VideoContext } from '../../context/VideoContext'
@@ -32,7 +33,9 @@ export const Card = ({ video, categoryColor }) => {
 
   return (
     <div className="card" style={{borderColor: categoryColor}}>
-      <div className="card-img-container"><img src={image} alt=""/></div>
+      <Link to={`/video/${id}`}>
+        <div className="card-img-container"><img src={image} alt=""/></div>
+      </Link>
       <div className="card-footer" style={{borderColor: categoryColor}}>
         <button onClick={handleDelete} ><i className="fas fa-trash-alt"></i> BORRAR</button>
         <button onClick={() => editVideo(video)}><i className="fas fa-edit"></i> EDITAR</button>

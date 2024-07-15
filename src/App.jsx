@@ -3,6 +3,7 @@ import { Footer } from "./components/layout/footer/Footer";
 import { Header } from "./components/layout/header/Header";
 import { Home } from "./pages/home/Home";
 import { NewVideo } from "./pages/new-video/NewVideo";
+import { Video } from "./pages/video/Video";
 import { NotFound } from "./pages/not-found/NotFound";
 import { Modal } from "./components/modal/Modal";
 import CategoryContextProvider from "./context/CategoryContext";
@@ -17,6 +18,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/nuevo-video" element={<NewVideo />} />
+            <Route path="/video/:id" element={<Video />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

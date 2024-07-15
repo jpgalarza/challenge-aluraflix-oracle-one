@@ -52,7 +52,7 @@ const urlValidation = (target) => {
 const descriptionValidation = (target) => {
   const value = target.value.trim();
 
-  if (value.length < 10 || value.length > 300) {
+  if (value.length < 10 || value.length > 500) {
     target.setCustomValidity('error');
   }
 };

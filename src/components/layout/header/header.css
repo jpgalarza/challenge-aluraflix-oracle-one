@@ -10,7 +10,7 @@ header::after {
   right: 0;
   top: 0;
   border-bottom: 4px solid var(--primary-color);
-  box-shadow: 0 5px 29px 0px var(--category-color);
+  box-shadow: 0 5px 29px 0px var(--primary-color);
 }
 
 .header-container {

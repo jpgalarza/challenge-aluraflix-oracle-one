@@ -20,7 +20,7 @@
   .banner-title {
     height: 65px;
     width: 282px;
-    background-color: var(--category-color);
+    background-color: var(--secondary-color);
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -56,8 +56,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    box-shadow: inset 0 0 17px 8px var(--category-color);
-    border: 5px solid var(--category-color);
+    box-shadow: inset 0 0 17px 8px var(--secondary-color);
+    border: 5px solid var(--secondary-color);
     border-radius: 15px;
   }
 

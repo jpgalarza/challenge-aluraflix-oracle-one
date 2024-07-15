@@ -17,7 +17,7 @@ export const Textarea = ({ name, label, placeholder, value, handleInputChange, v
         onBlur={e => validate(e.target)}
         onInvalid={e => { e.preventDefault(); validate(e.target) }}
         minLength={10}
-        maxLength={300}
+        maxLength={500}
         required
       ></textarea>
       <p className="error-message">{error !== ''? error : ''}</p>
