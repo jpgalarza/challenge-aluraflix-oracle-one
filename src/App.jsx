@@ -4,6 +4,7 @@ import { Header } from "./components/layout/header/Header";
 import { Home } from "./pages/home/Home";
 import { NewVideo } from "./pages/new-video/NewVideo";
 import { NotFound } from "./pages/not-found/NotFound";
+import { Modal } from "./components/modal/Modal";
 import CategoryContextProvider from "./context/CategoryContext";
 import VideoContextProvider from "./context/VideoContext";
 
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
+          <Modal/>
         </Router>
       </VideoContextProvider>
     </CategoryContextProvider>

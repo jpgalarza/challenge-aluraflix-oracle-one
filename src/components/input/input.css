@@ -29,6 +29,10 @@
   border-color: var(--danger);
 }
 
+.input-edit {
+  border-color: var(--secondary-color);
+}
+
 .error-message {
   background-color: var(--danger); 
   color: var(--white); 

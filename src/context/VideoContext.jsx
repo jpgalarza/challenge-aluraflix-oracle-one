@@ -5,6 +5,7 @@ export const VideoContext = createContext();
 
 const VideoContextProvider = ({ children }) => {
   const [videos, setVideos] = useState(data.videos);
+  const [videoEdit, setVideoEdit] = useState(null);
 
   const createVideo = (data) => {
     setVideos([... videos, { id: crypto.randomUUID(), ...data}])
@@ -13,13 +14,34 @@ const VideoContextProvider = ({ children }) => {
   const deleteVideo = (id) => {
     setVideos(videos.filter(video => video.id !== id));
   };
+
+  const editVideo = (video) => {
+    setVideoEdit(video);
+  }
+
+  const resetVideoEdit = () => {
+    setVideoEdit(null);
+  }
+
+  const updateVideo = (video) => {
+    setVideos(videos.map(vid => {
+      if(vid.id === video.id) {
+        return video;
+      }
+      return vid;
+    }))
+  }
   
 
   return (
     <VideoContext.Provider value={{
       videos,
+      videoEdit,
       createVideo,
-      deleteVideo
+      deleteVideo,
+      editVideo,
+      resetVideoEdit,
+      updateVideo
     }}
     >
       {children}

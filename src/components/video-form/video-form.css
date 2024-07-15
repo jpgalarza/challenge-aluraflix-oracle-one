@@ -10,6 +10,14 @@
   margin-top: 20px;
 }
 
+.edit-form-subtitle {
+  color: var(--primary-color);
+}
+
+.edit-form>label {
+  margin: 10px 0 !important;
+}
+
 .form-button-container {
   display: flex;
   flex-direction: column;
@@ -25,6 +33,15 @@
     gap: 20px;
   }
 
+  .edit-form {
+    flex-direction: column;
+    padding: 30px 130px;
+  }
+
+  .edit-form>label {
+    width: 100% !important;
+  }
+
   .form-subtitle {
     width: 100%;
     margin: 30px 0;
@@ -34,6 +51,10 @@
     width: 100%;
     flex-direction: row;
     margin-top: 10px;
+  }
+
+  .edit-form-btn-container {
+    justify-content: space-between;
   }
 }
 

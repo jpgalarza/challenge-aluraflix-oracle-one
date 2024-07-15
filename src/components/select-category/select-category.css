@@ -5,3 +5,7 @@
 #category>option {
   background-color: var(--body-color);
 }
+
+.opt-edit {
+  background-color: #03122F !important; 
+}

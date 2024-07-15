@@ -10,14 +10,17 @@ import { errorTypes, messages } from "../../js/customErrors";
 import { validations } from "../../helpers/validations";
 import { VideoContext } from "../../context/VideoContext";
 
+const newVideo = {
+  title: '',
+  category: '',
+  image: '',
+  video: '',
+  description: ''
+}
+
 export const VideoForm = () => {
-  const [videoData, setVideoData] = useState({
-    title: '',
-    category: '',
-    image: '',
-    video: '',
-    description: ''
-  });
+  const { createVideo, videoEdit, updateVideo, resetVideoEdit } = useContext(VideoContext);
+  const [videoData, setVideoData] = useState(videoEdit || newVideo);
   const [errors, setErrors] = useState({
     title: '',
     category: '',
@@ -25,7 +28,6 @@ export const VideoForm = () => {
     video: '',
     description: ''
   });
-  const { createVideo } = useContext(VideoContext);
   const navigate = useNavigate();
   
 
@@ -65,25 +67,44 @@ export const VideoForm = () => {
     const isError = Object.values(errors).some(error => error !== '');
 
     if(!missingData && !isError) {
-      createVideo(videoData);
 
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Video creado exitosamente!!",
-        showConfirmButton: false,
-        timer: 1500
-      });
+      if(videoEdit) {
+        updateVideo(videoData);
+        resetVideoEdit();
 
-      setTimeout(() => {
-        navigate("/");
-      }, 1500);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Video actualizado exitosamente!!",
+          showConfirmButton: false,
+          timer: 1500
+        });
+
+      }else {
+        createVideo(videoData);
+        
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Video creado exitosamente!!",
+          showConfirmButton: false,
+          timer: 1500
+        });
+  
+        setTimeout(() => {
+          navigate("/");
+        }, 1500);
+      }
     }
   };
 
   return (
-    <form className="form-video" onSubmit={handleSubmit}>
-      <h2 className="form-subtitle">Crear Tarjeta</h2>
+    <form className={`form-video ${videoEdit && 'edit-form'}`} onSubmit={handleSubmit}>
+      <h2 
+        className={`form-subtitle ${videoEdit && 'edit-form-subtitle'}`}
+      >
+        {videoEdit? 'EDITAR CARD' : "Crear Tarjeta"}
+      </h2>
       <Input
         type="text"
         name="title"
@@ -132,7 +153,7 @@ export const VideoForm = () => {
         validate={validate}
         error={errors.description}
       />
-      <div className="form-button-container">
+      <div className={`form-button-container ${videoEdit && 'edit-form-btn-container'}`}>
         <Button type="submit" text="GUARDAR" errors={errors} data={videoData}/>
         <Button type="reset" text="LIMPIAR" />
       </div>
