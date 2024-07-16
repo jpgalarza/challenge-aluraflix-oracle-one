@@ -1,11 +1,26 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import data from '../data/data.json';
 
 export const VideoContext = createContext();
 
 const VideoContextProvider = ({ children }) => {
-  const [videos, setVideos] = useState(data.videos);
+  const [videos, setVideos] = useState([]);
   const [videoEdit, setVideoEdit] = useState(null);
+
+  useEffect(() => {
+    const videos = localStorage.getItem('videos');
+
+    if(videos) {
+      setVideos(JSON.parse(videos))
+    }else {
+      setVideos(data.videos)
+    }
+  }, [])
+
+  useEffect(() => {
+    if(videos.length > 0) localStorage.setItem('videos', JSON.stringify(videos));
+  }, [videos])
+
 
   const createVideo = (data) => {
     setVideos([... videos, { id: crypto.randomUUID(), ...data}])
